@@ -1,0 +1,9 @@
+out
+.idea
+*.class
+*.so
+*.iml
+src/GUI.h
+src/Connection.h
+*.log
+libclientJNI.jnilib

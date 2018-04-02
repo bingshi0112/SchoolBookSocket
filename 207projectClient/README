@@ -1,0 +1,19 @@
+sudo ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64/include/linux/jni_md.h /usr/lib/jvm/java-1.8.0-openjdk-amd64/include/jni_md.h
+
+gcc -o server Server.c dbutil.c -I "/usr/include/mysql" -L "/usr/lib/x86_64-linux-gnu" -lmysqlclient -lz
+
+gcc -o server Server.c dbutil.c mappers.c encryption.c -I "/usr/include/mysql" -I "/usr/include/json-c" -L "/usr/lib/x86_64-linux-gnu" -lmysqlclient -ljson-c -lz -pthread -l mcrypt
+
+javac -cp ".:../lib/gson-2.6.2.jar" GUI.java
+javah Connection
+
+gcc -o libclientJNI.so -shared -I/usr/lib/jvm/java-1.8.0-openjdk-amd64/include -I/usr/lib/jvm/java-1.8.0-openjdk-amd64/include/linux Connection.h clientJNI.c Client.c encryption.c -fPIC -lmcrypt
+java -classpath .:../lib/gson-2.6.2.jar GUI
+
+-----------------------------------Bing--------------------------------------------------------------
+gcc -shared -I/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/include/darwin Connection.h clientJNI.c encryption.c Client.c -fPIC -l mcrypt
+mv a.out libclientJNI.jnilib
+javac -cp ".:../lib/gson-2.6.2.jar" GUI.java
+java -classpath .:../lib/gson-2.6.2.jar GUI
+
+http://www.math.ucla.edu/~anderson/JAVAclass/JavaInterface/JavaInterface.html

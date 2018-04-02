@@ -1,0 +1,37 @@
+Login:
+check bingshi011@gmail.com 900112
+current
+
+Student:
+get course email is bingshi011@gmail.com current
+get person courseId is 3
+
+Professor:
+get course email is bingshi011@gmail.com current
+get person courseId is 3
+drop person email bingshi011@gmail.com course id 3
+(enroll person email bingshi011@gmail.com course id 3)
+
+Admin:
+select person role is 2
+delete person email bingshi0112@gmail.com
+(insert person Bing Tran bingshi0112@gmail.com 910209 2 2)
+
+select person role is 1
+delete person email lamtran@gmail.com
+(insert person Lam Tran lamtran@gmail.com 910209 2 1)
+
+select course current
+delete course id (15)
+(insert course CMPE 280 Fall 2016 UIDesign 02)
+get person courseId is 3
+enroll person email bingshi011@gmail.com course id 5
+(drop person email bingshi011@gmail.com course id 5)
+drop person email bingshi011@gmail.com course id 3
+(enroll person email bingshi011@gmail.com course id 3)
+insert person Lam Tran lamtran91@gmail.com 910209 1 2
+(delete person email lamtran91@gmail.com)
+insert person Lam Tran lamtran91@gmail.com 910209 1 1
+(delete person email lamtran91@gmail.com)
+insert course CMPE 280 Fall 2016 UIDesign 03
+(delete course id (15))
